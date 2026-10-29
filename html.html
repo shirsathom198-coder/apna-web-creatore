@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Google SEO Meta Tags -->
+  <title>Apna Web Creator - Build, Design & Publish Any Website Instantly</title>
+  <meta name="title" content="Apna Web Creator - Build, Design & Publish Any Website Instantly">
+  <meta name="description" content="Apna Web Creator is a simple, modern website builder for youth, students, and businesses. Create responsive websites for IT hubs, cafes, stores, and portfolios in minutes. Everyone can create!">
+  <meta name="keywords" content="Apna Web Creator, apna web, website creator, build website india, free website builder, youth web design, IT hub website, cafe website builder">
+  <meta name="author" content="Vijaya Thakuji Shirsath / Apna Web Creator">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
+
+  <!-- Open Graph / Social Media Preview Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Apna Web Creator - Everyone Can Create">
+  <meta property="og:description" content="Build and publish responsive websites for cafes, shops, IT hubs, and portfolios in 6 simple steps.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0b0f19; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .device-preview-mobile { max-width: 375px; height: 580px; margin: 0 auto; border-radius: 24px; border: 8px solid #334155; }
+    .device-preview-tablet { max-width: 768px; height: 600px; margin: 0 auto; border-radius: 20px; border: 8px solid #334155; }
+    .device-preview-desktop { width: 100%; height: 100%; border: none; border-radius: 0; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- Toast Notification Alert -->
+  <div id="toastBox" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900/95 border border-slate-700/80 backdrop-blur-md px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm">
+    <div class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></div>
+    <span id="toastMsg" class="font-medium text-slate-200">Ready</span>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <!-- Logo: Triple click to open Master Control -->
+      <div id="brandHeaderLogo" class="flex items-center gap-3 cursor-pointer select-none" title="Triple-click for Master Control (PIN: 7788)">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-600/30">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="text-base sm:text-lg font-bold tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-300 bg-clip-text text-transparent">Apna Web Creator</span>
+          <span class="hidden sm:block text-[10px] text-cyan-400 font-medium uppercase tracking-widest">Creator Studio</span>
+        </div>
+      </div>
+
+      <!-- Navigation Stepper -->
+      <div class="hidden md:flex items-center gap-2 text-xs font-semibold">
+        <div id="stepWelcomeBadge" class="flex items-center gap-1.5 text-cyan-400 font-bold">
+          <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-[10px]">1</span> Welcome
+        </div>
+        <span class="text-slate-700">→</span>
+        <div id="stepLoginBadge" class="flex items-center gap-1.5 text-slate-500">
+          <span class="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">2</span> Login
+        </div>
+        <span class="text-slate-700">→</span>
+        <div id="stepCategoryBadge" class="flex items-center gap-1.5 text-slate-500">
+          <span class="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">3</span> Type
+        </div>
+        <span class="text-slate-700">→</span>
+        <div id="stepStudioBadge" class="flex items-center gap-1.5 text-slate-500">
+          <span class="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">4</span> Studio
+        </div>
+        <span class="text-slate-700">→</span>
+        <div id="stepDesignBadge" class="flex items-center gap-1.5 text-slate-500">
+          <span class="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">5</span> Design
+        </div>
+        <span class="text-slate-700">→</span>
+        <div id="stepPublishBadge" class="flex items-center gap-1.5 text-slate-500">
+          <span class="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">6</span> Publish & Pay
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="promptMasterControl()" title="Owner Master Control (PIN: 7788)" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-amber-400 transition">
+          <span class="text-sm">👑</span>
+        </button>
+        <button id="navWelcomeBtn" onclick="navigate('login')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white shadow-md shadow-indigo-600/30 transition-all">
+          Get Started →
+        </button>
+        <div id="navUserArea" class="hidden flex items-center gap-3">
+          <div class="text-right">
+            <span id="navUserName" class="text-xs font-semibold text-slate-200 block">Creator</span>
+            <span id="selectedCategoryPill" class="text-[10px] text-cyan-400 font-medium">Type: IT HUB</span>
+          </div>
+          <button onclick="handleLogout()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-rose-500/10 hover:border-rose-500/30 border border-slate-800 text-xs font-medium text-slate-400 hover:text-rose-400 transition-all">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== SCREEN 1: WELCOME ==================== -->
+  <section id="viewWelcome" class="flex-grow flex flex-col justify-start">
+    <div class="relative overflow-hidden py-14 sm:py-20 border-b border-slate-800/80 bg-gradient-to-b from-indigo-950/30 via-slate-950 to-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            Youth Power • Empowering Every Creator
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Everyone Can Create.<br>
+            <span class="bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">When You Want, You Can Create.</span>
+          </h1>
+          <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+            Build modern websites in minutes. Designed for students, dreamers, and young entrepreneurs to create and publish on the web.
+          </p>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <button onclick="navigate('login')" class="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 transition-all active:scale-95">
+              Start Creating Now →
+            </button>
+            <button onclick="quickGuestAccess()" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold text-sm transition">
+              ⚡ Instant Guest Mode
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl p-3 bg-gradient-to-b from-indigo-500/20 to-slate-900 border border-indigo-500/30 shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
+              alt="Workspace and laptop design preview" 
+              class="w-full h-auto rounded-2xl object-cover shadow-lg border border-slate-800"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Inspiration Showcase -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div class="mb-8">
+        <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest">Inspiration Showcase</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Select what you want to build</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-3">
+          <div class="h-36 rounded-xl overflow-hidden bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="IT Hub Website" class="w-full h-full object-cover">
+          </div>
+          <h4 class="text-sm font-bold text-white">💻 Next-Gen IT Hub</h4>
+          <p class="text-xs text-slate-400">Software agencies, cloud stacks, and tech solutions.</p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-3">
+          <div class="h-36 rounded-xl overflow-hidden bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80" alt="Cafe Website" class="w-full h-full object-cover">
+          </div>
+          <h4 class="text-sm font-bold text-white">☕ Cafe & Bistro</h4>
+          <p class="text-xs text-slate-400">Fresh coffee menus, bakeries, and table booking.</p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-3">
+          <div class="h-36 rounded-xl overflow-hidden bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Shop Storefront" class="w-full h-full object-cover">
+          </div>
+          <h4 class="text-sm font-bold text-white">🛍️ Online Store & Shop</h4>
+          <p class="text-xs text-slate-400">Product showcases, price cards, and shopping carts.</p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-3">
+          <div class="h-36 rounded-xl overflow-hidden bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Portfolio Website" class="w-full h-full object-cover">
+          </div>
+          <h4 class="text-sm font-bold text-white">🌟 Personal Portfolio</h4>
+          <p class="text-xs text-slate-400">Developer bio, skills, and client contact forms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 2: LOGIN / ACCOUNT ==================== -->
+  <section id="viewLogin" class="hidden flex-grow flex items-center justify-center p-4 sm:p-6">
+    <div class="w-full max-w-md">
+      <div class="mb-5 p-4 rounded-2xl bg-gradient-to-r from-indigo-950/70 via-slate-900 to-indigo-950/70 border border-indigo-500/30 text-center shadow-lg">
+        <span class="text-xl">💡</span>
+        <blockquote class="text-xs sm:text-sm font-semibold text-indigo-200 mt-1 italic">
+          &ldquo;Everyone can create. No matter your age, your ideas deserve their own place on the web.&rdquo;
+        </blockquote>
+        <span class="text-[10px] text-cyan-400 font-mono block mt-1 font-bold uppercase">— Apna Creator Motto</span>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+        <h2 class="text-2xl font-extrabold text-white text-center mb-1">Step 2: Sign In</h2>
+        <p class="text-xs text-slate-400 text-center mb-6">Enter details or continue as guest to start building.</p>
+
+        <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name / Email</label>
+            <input type="text" id="authEmailInput" required value="creator@apnaweb.in" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Password</label>
+            <input type="password" required value="password123" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+          </div>
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-sm shadow-lg transition">
+            Continue to Step 3 (Choose Type) →
+          </button>
+        </form>
+
+        <div class="mt-6 text-center border-t border-slate-800 pt-4">
+          <button type="button" onclick="quickGuestAccess()" class="text-xs text-slate-400 hover:text-cyan-300">
+            ⚡ Quick entry: <span class="text-cyan-400 font-semibold underline">Continue as Guest</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 3: WEBSITE TYPE SELECTION ==================== -->
+  <section id="viewCategory" class="hidden flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+      <div>
+        <div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider">Step 3 of 6</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Select Website Type</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">Pick a starter template to load inside the editor.</p>
+      </div>
+      <button onclick="navigate('login')" class="text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+        ← Back to Login
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div onclick="selectCategory('ithub')" id="card-ithub" class="category-card rounded-2xl bg-slate-900 border-2 border-indigo-500 ring-2 ring-indigo-500/40 p-5 cursor-pointer flex flex-col justify-between transition group">
+        <div>
+          <div class="text-2xl mb-2">💻</div>
+          <h3 class="text-base font-bold text-white group-hover:text-cyan-400">IT Hub & Agency</h3>
+          <p class="text-xs text-slate-400 mt-2">Cloud computing, enterprise IT services, and tech agency layout.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-semibold text-cyan-400">Selected ✓</div>
+      </div>
+
+      <div onclick="selectCategory('cafe')" id="card-cafe" class="category-card rounded-2xl bg-slate-900 border-2 border-slate-800 hover:border-amber-500 p-5 cursor-pointer flex flex-col justify-between transition group">
+        <div>
+          <div class="text-2xl mb-2">☕</div>
+          <h3 class="text-base font-bold text-white group-hover:text-amber-400">Cafe & Bistro</h3>
+          <p class="text-xs text-slate-400 mt-2">Artisan coffee menus, pastry prices, and corner table bookings.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-semibold text-slate-500">Choose Cafe →</div>
+      </div>
+
+      <div onclick="selectCategory('shop')" id="card-shop" class="category-card rounded-2xl bg-slate-900 border-2 border-slate-800 hover:border-emerald-500 p-5 cursor-pointer flex flex-col justify-between transition group">
+        <div>
+          <div class="text-2xl mb-2">🛍️</div>
+          <h3 class="text-base font-bold text-white group-hover:text-emerald-400">Online Store & Shop</h3>
+          <p class="text-xs text-slate-400 mt-2">Product storefront, discount badges, and instant cart buttons.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-semibold text-slate-500">Choose Shop →</div>
+      </div>
+
+      <div onclick="selectCategory('portfolio')" id="card-portfolio" class="category-card rounded-2xl bg-slate-900 border-2 border-slate-800 hover:border-indigo-500 p-5 cursor-pointer flex flex-col justify-between transition group">
+        <div>
+          <div class="text-2xl mb-2">🌟</div>
+          <h3 class="text-base font-bold text-white group-hover:text-indigo-400">Personal Portfolio</h3>
+          <p class="text-xs text-slate-400 mt-2">Developer showcase, skill list, and professional biography.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-semibold text-slate-500">Choose Portfolio →</div>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+      <div>
+        <span class="text-xs text-slate-400">Ready to build:</span>
+        <h4 id="activeCategoryTitle" class="text-base font-extrabold text-white">IT Hub & Agency</h4>
+      </div>
+      <button onclick="navigate('studio')" class="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white rounded-xl font-bold text-sm shadow-xl transition">
+        Open Creator Studio (Step 4) →
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 4: CREATOR STUDIO ==================== -->
+  <section id="viewStudio" class="hidden flex-grow flex flex-col h-[calc(100vh-4rem)] overflow-hidden">
+    <div class="bg-slate-900/90 border-b border-slate-800 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <button onclick="navigate('category')" class="text-slate-400 hover:text-white text-xs">← Change Type</button>
+        <span class="text-slate-700">|</span>
+        <span id="studioTypeBadge" class="text-[10px] text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full font-mono">IT HUB</span>
+      </div>
+
+      <!-- Viewport Device Switcher -->
+      <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800">
+        <button id="devDesktop" onclick="setDeviceView('desktop')" class="px-2.5 py-1 text-xs rounded-lg font-medium bg-indigo-600 text-white">Desktop</button>
+        <button id="devTablet" onclick="setDeviceView('tablet')" class="px-2.5 py-1 text-xs rounded-lg font-medium text-slate-400 hover:text-white">Tablet</button>
+        <button id="devMobile" onclick="setDeviceView('mobile')" class="px-2.5 py-1 text-xs rounded-lg font-medium text-slate-400 hover:text-white">Mobile</button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="copyCurrentCode()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium">Copy</button>
+        <button onclick="downloadCodeFile()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium">Download .html</button>
+        <button onclick="navigate('design')" class="px-3.5 py-1.5 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-lg text-xs font-bold">
+          Step 5: Design Presets →
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Workspace Split -->
+    <div class="flex-grow grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
+      <div class="lg:col-span-5 flex flex-col border-r border-slate-800 bg-slate-950">
+        <div class="bg-slate-900/80 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
+          <span>index.html</span>
+          <span class="text-emerald-400">● Live Synced</span>
+        </div>
+        <textarea id="studioTextarea" class="w-full h-full p-4 bg-slate-950 text-cyan-200 font-mono text-xs sm:text-sm focus:outline-none resize-none leading-relaxed" spellcheck="false"></textarea>
+      </div>
+
+      <div class="lg:col-span-7 flex flex-col bg-slate-900/50 p-3 sm:p-5 items-center justify-center overflow-auto">
+        <iframe id="studioPreviewFrame" class="w-full h-full bg-white rounded-xl shadow-2xl" sandbox="allow-scripts allow-modals"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 5: DESIGN PRESETS ==================== -->
+  <section id="viewDesign" class="hidden flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+      <div>
+        <div class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">Step 5 of 6</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Design Presets & Themes</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">Instantly switch color themes with one click.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="navigate('studio')" class="text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          ← Back to Studio
+        </button>
+        <button onclick="navigate('publish')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold text-xs">
+          Step 6: Publish Website & Pay →
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+          <h3 class="text-sm font-bold text-white mb-3">🎨 Color Palettes</h3>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="applyDesignTheme('cyberDark')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500 text-left">
+              <span class="text-xs font-semibold text-white block">Cyber Dark</span>
+              <span class="text-[10px] text-slate-400">Slate + Cyan</span>
+            </button>
+            <button onclick="applyDesignTheme('modernClean')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-500 text-left">
+              <span class="text-xs font-semibold text-white block">Clean Light</span>
+              <span class="text-[10px] text-slate-400">White + Indigo</span>
+            </button>
+            <button onclick="applyDesignTheme('warmSunset')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-left">
+              <span class="text-xs font-semibold text-white block">Warm Amber</span>
+              <span class="text-[10px] text-slate-400">Coffee Roast</span>
+            </button>
+            <button onclick="applyDesignTheme('emeraldGrowth')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500 text-left">
+              <span class="text-xs font-semibold text-white block">Emerald Pine</span>
+              <span class="text-[10px] text-slate-400">Forest Green</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 h-[500px] rounded-2xl border-2 border-slate-800 overflow-hidden bg-slate-950">
+        <iframe id="designPreviewFrame" class="w-full h-full bg-white" sandbox="allow-scripts allow-modals"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 6: PUBLISH & DEPLOY WITH NAVI UPI ==================== -->
+  <section id="viewPublish" class="hidden flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
+    <div class="text-center max-w-2xl mx-auto space-y-2">
+      <div class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Step 6 of 6 • Public Deployment & Protection</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Publish with Secure UPI Payment</h2>
+      <p class="text-sm text-slate-400">Complete the one-time ₹199 license fee via UPI to publish your live website.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left Column: Domain & Protection Details -->
+      <div class="lg:col-span-5 space-y-5">
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>🌐</span> Public Web Address
+          </h3>
+          <div class="flex items-center bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm">
+            <span class="text-slate-500 text-xs font-mono mr-1">https://</span>
+            <input type="text" id="publicSubdomainInput" value="myapnawebsite" class="bg-transparent text-cyan-300 font-mono text-xs sm:text-sm flex-1 focus:outline-none" oninput="updateLiveUrlDisplay()">
+            <span class="text-slate-400 text-xs font-mono">.apnaweb.in</span>
+          </div>
+          <div class="text-[11px] text-slate-500 font-mono">
+            Preview: <span id="fullUrlPreview" class="text-emerald-400 font-bold">https://myapnawebsite.apnaweb.in</span>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+          <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Included in this License</h4>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2 text-slate-300"><span class="text-emerald-400">✓</span> Lifetime live hosting on .apnaweb.in</li>
+            <li class="flex items-center gap-2 text-slate-300"><span class="text-emerald-400">✓</span> Free automated SSL certificate (HTTPS)</li>
+            <li class="flex items-center gap-2 text-slate-300"><span class="text-emerald-400">✓</span> Clean unbranded source code export</li>
+            <li class="flex items-center gap-2 text-slate-300"><span class="text-emerald-400">✓</span> High-speed CDN & 24/7 protection</li>
+          </ul>
+          <div class="pt-3 border-t border-slate-800 flex justify-between items-center text-sm">
+            <span class="font-medium text-slate-400">Total Payable:</span>
+            <span id="priceDisplaySummary" class="text-2xl font-black text-emerald-400">₹199</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Exact Navi UPI Scanner -->
+      <div class="lg:col-span-7">
+        <div class="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-indigo-500/30 shadow-2xl space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h4 class="text-base font-extrabold text-white">Scan &amp; Pay via any UPI App</h4>
+              <p class="text-xs text-slate-400">GPay, PhonePe, Paytm, Navi &amp; BHIM</p>
+            </div>
+            <span id="priceDisplayHeader" class="text-2xl font-black text-emerald-400">₹199</span>
+          </div>
+
+          <!-- Merchant Account Badge -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-emerald-500/30 text-xs flex items-center justify-between">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-emerald-400 block tracking-wider">✓ Verified Payee</span>
+              <span id="payeeNameDisplay" class="font-bold text-white text-xs sm:text-sm">Vijaya Thakuji Shirsath</span>
+              <span class="text-[11px] text-slate-400 block font-mono">UPI ID: <strong id="activeUpiDisplay" class="text-cyan-300">9172259806@nyes</strong></span>
+            </div>
+            <button type="button" onclick="copyUpiId()" class="px-3 py-1.5 bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500/40 text-indigo-300 rounded-lg text-xs font-semibold">
+              Copy UPI ID
+            </button>
+          </div>
+
+          <!-- QR Code Display Box -->
+          <div class="flex flex-col sm:flex-row items-center gap-5 p-4 rounded-2xl bg-slate-950 border border-slate-800">
+            <div class="p-3 bg-white rounded-2xl shadow-inner flex flex-col items-center justify-center shrink-0">
+              <img id="upiQrCodeImg" src="" alt="UPI Payment QR Code" class="w-40 h-40 object-contain rounded-lg">
+              <span class="text-[10px] font-bold text-slate-800 mt-1 uppercase tracking-wider">Scan with any UPI app</span>
+            </div>
+            <div class="space-y-2 text-center sm:text-left flex-1">
+              <h5 class="text-xs font-bold text-white uppercase tracking-wider">How to pay:</h5>
+              <ol class="text-[11px] text-slate-400 space-y-1 list-decimal list-inside leading-relaxed">
+                <li>Scan this QR using Google Pay, PhonePe, Paytm, or Navi.</li>
+                <li>Send <strong id="priceTextInList">₹199</strong> to <strong id="upiIdInList" class="text-cyan-300">9172259806@nyes</strong>.</li>
+                <li>Copy the <strong>12-digit UPI Ref / UTR number</strong> from your receipt.</li>
+                <li>Paste it below to unlock and publish your live website.</li>
+              </ol>
+              <div class="pt-2">
+                <a id="mobileUpiLink" href="" class="inline-block w-full sm:w-auto text-center px-4 py-2 bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white rounded-xl text-xs font-bold shadow-md transition">
+                  📱 Open Installed UPI App Directly
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12-Digit UTR Input Form -->
+          <form onsubmit="handlePaymentVerification(event)" class="space-y-3 pt-2">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">12-Digit UPI Transaction ID / UTR Number</label>
+              <input type="text" id="utrNumberInput" required pattern="[0-9]{12}" maxlength="12" placeholder="e.g. 423456789012" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-cyan-300 font-mono tracking-widest placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+              <span class="text-[10px] text-slate-500 mt-1 block">From your UPI payment successful confirmation screen.</span>
+            </div>
+
+            <button type="submit" id="btnVerifyAndPublish" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 hover:from-emerald-500 hover:to-cyan-400 text-white font-extrabold text-sm shadow-xl shadow-emerald-600/20 transition-all flex items-center justify-center gap-2">
+              <span id="btnVerifyText">Verify Payment &amp; Publish Website Live 🚀</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Published Success Modal -->
+  <div id="publishedSuccessModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4">
+    <div class="w-full max-w-md bg-slate-900 border border-emerald-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-4">
+      <div class="text-4xl">🎉</div>
+      <h3 class="text-2xl font-black text-white">Payment Verified &amp; Site Live!</h3>
+      <p id="publishedLiveAnchor" class="text-sm font-bold text-cyan-400 font-mono break-all">https://myapnawebsite.apnaweb.in</p>
+      <div class="grid grid-cols-2 gap-3 pt-3">
+        <button onclick="downloadCodeFile()" class="w-full py-2.5 rounded-xl bg-slate-800 text-white font-bold text-xs">Download HTML</button>
+        <button onclick="closeSuccessModal()" class="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs">Back to Studio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 👑 MASTER CONTROL ADMIN MODAL ==================== -->
+  <div id="masterAdminModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-4 overflow-y-auto">
+    <div class="w-full max-w-4xl bg-slate-900 border-2 border-amber-500/40 rounded-3xl shadow-2xl overflow-hidden my-8">
+      <div class="bg-gradient-to-r from-amber-600/20 via-slate-900 to-amber-600/20 px-6 py-4 border-b border-amber-500/30 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 text-lg font-bold">👑</div>
+          <div>
+            <h3 class="text-base font-extrabold text-white">Master Control Center</h3>
+            <span class="text-[10px] text-amber-400 font-mono uppercase tracking-widest">Admin Superuser Dashboard</span>
+          </div>
+        </div>
+        <button onclick="closeMasterControl()" class="text-slate-400 hover:text-white text-xl font-bold px-2 py-1">✕</button>
+      </div>
+
+      <div class="p-6 space-y-6">
+        <!-- Overview Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400 block">Total Revenue</span>
+            <span id="statTotalRev" class="text-2xl font-black text-emerald-400">₹0</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400 block">Total Payments</span>
+            <span id="statTotalTx" class="text-2xl font-black text-cyan-400">0</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400 block">Approved Sites</span>
+            <span id="statApproved" class="text-2xl font-black text-indigo-400">0</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400 block">Current Price</span>
+            <span id="statCurrentPrice" class="text-2xl font-black text-amber-400">₹199</span>
+          </div>
+        </div>
+
+        <!-- Master Settings Form -->
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
+          <h4 class="text-xs font-extrabold text-white uppercase tracking-wider flex items-center gap-2">
+            <span>⚙️</span> Platform Settings
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1">Base Price (₹)</label>
+              <input type="number" id="adminPriceInput" value="199" min="1" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-bold focus:outline-none focus:border-amber-500">
+            </div>
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1">Merchant Payee Name</label>
+              <input type="text" id="adminPayeeNameInput" value="Vijaya Thakuji Shirsath" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-bold focus:outline-none focus:border-amber-500">
+            </div>
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1">Target UPI ID</label>
+              <input type="text" id="adminUpiInput" value="9172259806@nyes" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-cyan-300 font-mono font-bold focus:outline-none focus:border-amber-500">
+            </div>
+          </div>
+          <div class="flex justify-end gap-3 pt-2">
+            <button onclick="saveAdminSettings()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-extrabold text-xs shadow-lg transition">
+              Save Master Settings
+            </button>
+          </div>
+        </div>
+
+        <!-- UTR Audit Feed Table -->
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-extrabold text-white uppercase tracking-wider flex items-center gap-2">
+              <span>📋</span> Customer Transaction &amp; UTR Audit Feed
+            </h4>
+            <button onclick="clearTransactionLogs()" class="text-[11px] text-rose-400 hover:underline">
+              Clear Logs
+            </button>
+          </div>
+
+          <div class="overflow-x-auto max-h-60 overflow-y-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900 text-slate-400 text-[11px] uppercase font-mono">
+                <tr>
+                  <th class="p-2.5">Date &amp; Time</th>
+                  <th class="p-2.5">User</th>
+                  <th class="p-2.5">UTR / Tx ID</th>
+                  <th class="p-2.5">Subdomain</th>
+                  <th class="p-2.5">Amount</th>
+                  <th class="p-2.5">Status</th>
+                  <th class="p-2.5 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminTransactionTableBody" class="divide-y divide-slate-800 text-slate-300 font-mono text-[11px]">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const starterTemplates = {
+      ithub: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nexus IT Hub</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #080c14; color: #f1f5f9; text-align: center; padding: 60px 20px; }
+    h1 { font-size: 38px; color: #38bdf8; margin-bottom: 12px; }
+    p { max-width: 550px; margin: 0 auto 28px; color: #94a3b8; font-size: 16px; line-height: 1.6; }
+    .btn { display: inline-block; padding: 12px 28px; background: #0284c7; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Nexus IT Hub & Tech Agency</h1>
+  <p>Engineering robust enterprise architectures, modern cloud pipelines, and web applications for global businesses.</p>
+  <a href="#" class="btn">Explore IT Services</a>
+</body>
+</html>`,
+
+      cafe: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Roasted Bean Cafe</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: #1c1512; color: #fbf7f4; text-align: center; padding: 60px 20px; }
+    h1 { font-size: 38px; color: #fef3c7; margin-bottom: 12px; }
+    p { max-width: 520px; margin: 0 auto 28px; color: #d6cbbf; font-size: 16px; line-height: 1.6; }
+    .btn { display: inline-block; background: #d97706; color: white; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>The Roasted Bean Cafe</h1>
+  <p>Single-origin espresso, freshly baked sourdough croissants, and quiet co-working spaces.</p>
+  <a href="#" class="btn">Reserve a Corner Table</a>
+</body>
+</html>`,
+
+      shop: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aura Lifestyle Store</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #090e17; color: #f8fafc; text-align: center; padding: 60px 20px; }
+    h1 { font-size: 38px; color: #34d399; margin-bottom: 12px; }
+    p { max-width: 520px; margin: 0 auto 28px; color: #94a3b8; font-size: 16px; line-height: 1.6; }
+    .btn { display: inline-block; background: #10b981; color: white; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Aura Lifestyle & Gadgets</h1>
+  <p>Carefully curated daily essentials, premium mechanical keyboards, and modern minimalist desk setups.</p>
+  <a href="#" class="btn">Shop New Arrivals</a>
+</body>
+</html>`,
+
+      portfolio: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Developer Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b0f19; color: #f8fafc; text-align: center; padding: 60px 20px; }
+    h1 { font-size: 38px; color: #818cf8; margin-bottom: 12px; }
+    p { max-width: 520px; margin: 0 auto 28px; color: #94a3b8; font-size: 16px; line-height: 1.6; }
+    .btn { display: inline-block; background: #6366f1; color: white; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Aryan Sharma — Frontend Developer</h1>
+  <p>I build clean, accessible, and fast web experiences with HTML, CSS, and modern JavaScript.</p>
+  <a href="#" class="btn">Get in Touch</a>
+</body>
+</html>`
+    };
+
+    // Master Control State
+    let masterConfig = {
+      adminPin: '7788',
+      price: 199,
+      payeeName: 'Vijaya Thakuji Shirsath',
+      upiId: '9172259806@nyes',
+      transactions: []
+    };
+
+    try {
+      const saved = localStorage.getItem('apnaMasterConfig');
+      if (saved) {
+        masterConfig = { ...masterConfig, ...JSON.parse(saved) };
+      }
+    } catch (e) {}
+
+    let activeCategory = 'ithub';
+    let currentCode = starterTemplates.ithub;
+    let currentUser = null;
+
+    function saveConfig() {
+      try {
+        localStorage.setItem('apnaMasterConfig', JSON.stringify(masterConfig));
+      } catch (e) {}
+      applyConfigToUI();
+    }
+
+    function applyConfigToUI() {
+      const priceText = `₹${masterConfig.price}`;
+      document.querySelectorAll('#priceDisplaySummary, #priceDisplayHeader, #statCurrentPrice').forEach(el => {
+        if (el) el.textContent = priceText;
+      });
+      const pList = document.getElementById('priceTextInList');
+      if (pList) pList.textContent = priceText;
+
+      const btnV = document.getElementById('btnVerifyText');
+      if (btnV) btnV.textContent = `Verify ${priceText} Payment & Publish Website Live 🚀`;
+
+      const pName = document.getElementById('payeeNameDisplay');
+      if (pName) pName.textContent = masterConfig.payeeName;
+      const upiDisplay = document.getElementById('activeUpiDisplay');
+      if (upiDisplay) upiDisplay.textContent = masterConfig.upiId;
+      const upiList = document.getElementById('upiIdInList');
+      if (upiList) upiList.textContent = masterConfig.upiId;
+
+      // QR Code Generation
+      const encUpi = encodeURIComponent(masterConfig.upiId);
+      const encName = encodeURIComponent(masterConfig.payeeName);
+      const upiUri = `upi://pay?pa=${encUpi}&pn=${encName}&am=${masterConfig.price}&cu=INR`;
+
+      const qrImg = document.getElementById('upiQrCodeImg');
+      if (qrImg) {
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUri)}`;
+      }
+
+      const mLink = document.getElementById('mobileUpiLink');
+      if (mLink) mLink.href = upiUri;
+
+      const adminP = document.getElementById('adminPriceInput');
+      if (adminP) adminP.value = masterConfig.price;
+      const adminN = document.getElementById('adminPayeeNameInput');
+      if (adminN) adminN.value = masterConfig.payeeName;
+      const adminU = document.getElementById('adminUpiInput');
+      if (adminU) adminU.value = masterConfig.upiId;
+
+      renderAdminStats();
+    }
+
+    function notify(msg) {
+      const toast = document.getElementById('toastBox');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 2000);
+    }
+
+    function copyUpiId() {
+      navigator.clipboard.writeText(masterConfig.upiId).then(() => {
+        notify('UPI ID copied: ' + masterConfig.upiId);
+      }).catch(() => {
+        notify('UPI ID: ' + masterConfig.upiId);
+      });
+    }
+
+    function handlePaymentVerification(e) {
+      e.preventDefault();
+      const utr = document.getElementById('utrNumberInput').value.trim();
+      if (utr.length !== 12 || isNaN(utr)) {
+        notify('Please enter a valid 12-digit UTR number');
+        return;
+      }
+
+      const btn = document.getElementById('btnVerifyAndPublish');
+      btn.disabled = true;
+      btn.innerHTML = `<span>Verifying ₹${masterConfig.price} Payment... ⏳</span>`;
+
+      const tx = {
+        id: 'TX' + Date.now(),
+        date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', month: 'short', day: 'numeric' }),
+        user: currentUser || 'Anonymous User',
+        utr: utr,
+        subdomain: (document.getElementById('publicSubdomainInput').value.trim() || 'myapnawebsite'),
+        amount: masterConfig.price,
+        status: 'Approved'
+      };
+      masterConfig.transactions.unshift(tx);
+      saveConfig();
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = `<span id="btnVerifyText">Verify ₹${masterConfig.price} Payment &amp; Publish Website Live 🚀</span>`;
+        updateLiveUrlDisplay();
+        document.getElementById('publishedSuccessModal').classList.remove('hidden');
+        notify('Payment verified! Website published live.');
+      }, 1000);
+    }
+
+    function updateStepper(screen) {
+      const steps = [
+        { id: 'stepWelcomeBadge', num: '1', name: 'Welcome' },
+        { id: 'stepLoginBadge', num: '2', name: 'Login' },
+        { id: 'stepCategoryBadge', num: '3', name: 'Type' },
+        { id: 'stepStudioBadge', num: '4', name: 'Studio' },
+        { id: 'stepDesignBadge', num: '5', name: 'Design' },
+        { id: 'stepPublishBadge', num: '6', name: 'Publish & Pay' }
+      ];
+      const screenKeys = ['welcome', 'login', 'category', 'studio', 'design', 'publish'];
+      const curIdx = screenKeys.indexOf(screen);
+
+      steps.forEach((s, idx) => {
+        const el = document.getElementById(s.id);
+        if (!el) return;
+        if (idx === curIdx) {
+          el.className = 'flex items-center gap-1.5 text-cyan-400 font-bold';
+          el.innerHTML = `<span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-[10px]">${s.num}</span> ${s.name}`;
+        } else if (idx < curIdx) {
+          el.className = 'flex items-center gap-1.5 text-emerald-400 font-semibold';
+          el.innerHTML = `<span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px]">✓</span> ${s.name}`;
+        } else {
+          el.className = 'flex items-center gap-1.5 text-slate-500';
+          el.innerHTML = `<span class="w-5 h-5 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px]">${s.num}</span> ${s.name}`;
+        }
+      });
+    }
+
+    function navigate(screen) {
+      ['viewWelcome', 'viewLogin', 'viewCategory', 'viewStudio', 'viewDesign', 'viewPublish'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+
+      const navBtn = document.getElementById('navWelcomeBtn');
+      const navUser = document.getElementById('navUserArea');
+
+      if (screen === 'welcome') {
+        document.getElementById('viewWelcome').classList.remove('hidden');
+        if (navBtn) navBtn.classList.remove('hidden');
+        if (navUser) navUser.classList.add('hidden');
+      } else if (screen === 'login') {
+        document.getElementById('viewLogin').classList.remove('hidden');
+      } else if (screen === 'category') {
+        document.getElementById('viewCategory').classList.remove('hidden');
+        if (navBtn) navBtn.classList.add('hidden');
+        if (navUser) navUser.classList.remove('hidden');
+      } else if (screen === 'studio') {
+        document.getElementById('viewStudio').classList.remove('hidden');
+        if (navBtn) navBtn.classList.add('hidden');
+        if (navUser) navUser.classList.remove('hidden');
+        syncStudio();
+      } else if (screen === 'design') {
+        document.getElementById('viewDesign').classList.remove('hidden');
+        const dFrame = document.getElementById('designPreviewFrame');
+        if (dFrame) dFrame.srcdoc = currentCode;
+      } else if (screen === 'publish') {
+        document.getElementById('viewPublish').classList.remove('hidden');
+        updateLiveUrlDisplay();
+      }
+
+      updateStepper(screen);
+      window.scrollTo(0, 0);
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      currentUser = document.getElementById('authEmailInput').value.split('@')[0] || 'Creator';
+      document.getElementById('navUserName').textContent = currentUser;
+      notify('Welcome, ' + currentUser + '!');
+      navigate('category');
+    }
+
+    function quickGuestAccess() {
+      currentUser = 'Guest Creator';
+      document.getElementById('navUserName').textContent = currentUser;
+      notify('Logged in as Guest!');
+      navigate('category');
+    }
+
+    function handleLogout() {
+      currentUser = null;
+      notify('Signed out.');
+      navigate('welcome');
+    }
+
+    function selectCategory(catKey) {
+      activeCategory = catKey;
+      currentCode = starterTemplates[catKey] || starterTemplates.ithub;
+
+      const titles = {
+        ithub: 'IT Hub & Agency',
+        cafe: 'Cafe & Bistro',
+        shop: 'Online Store & Shop',
+        portfolio: 'Personal Portfolio'
+      };
+
+      document.getElementById('activeCategoryTitle').textContent = titles[catKey];
+      document.getElementById('selectedCategoryPill').textContent = 'Type: ' + catKey.toUpperCase();
+      document.getElementById('studioTypeBadge').textContent = catKey.toUpperCase();
+
+      document.querySelectorAll('.category-card').forEach(c => {
+        c.className = 'category-card rounded-2xl bg-slate-900 border-2 border-slate-800 p-5 cursor-pointer flex flex-col justify-between transition group';
+      });
+
+      const selected = document.getElementById('card-' + catKey);
+      if (selected) {
+        selected.className = 'category-card rounded-2xl bg-slate-900 border-2 border-indigo-500 ring-2 ring-indigo-500/40 p-5 cursor-pointer flex flex-col justify-between transition group';
+      }
+
+      notify('Selected ' + titles[catKey]);
+    }
+
+    const editorArea = document.getElementById('studioTextarea');
+    const previewFrame = document.getElementById('studioPreviewFrame');
+
+    function syncStudio() {
+      if (editorArea) editorArea.value = currentCode;
+      renderFrame();
+    }
+
+    function renderFrame() {
+      if (previewFrame && editorArea) {
+        previewFrame.srcdoc = editorArea.value;
+      }
+    }
+
+    if (editorArea) {
+      editorArea.addEventListener('input', () => {
+        currentCode = editorArea.value;
+        renderFrame();
+      });
+    }
+
+    function setDeviceView(mode) {
+      ['devDesktop', 'devTablet', 'devMobile'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.className = 'px-2.5 py-1 text-xs rounded-lg font-medium text-slate-400 hover:text-white';
+      });
+
+      if (mode === 'desktop') {
+        document.getElementById('devDesktop').className = 'px-2.5 py-1 text-xs rounded-lg font-medium bg-indigo-600 text-white';
+        previewFrame.className = 'w-full h-full bg-white rounded-xl shadow-2xl';
+      } else if (mode === 'tablet') {
+        document.getElementById('devTablet').className = 'px-2.5 py-1 text-xs rounded-lg font-medium bg-indigo-600 text-white';
+        previewFrame.className = 'device-preview-tablet bg-white shadow-2xl';
+      } else if (mode === 'mobile') {
+        document.getElementById('devMobile').className = 'px-2.5 py-1 text-xs rounded-lg font-medium bg-indigo-600 text-white';
+        previewFrame.className = 'device-preview-mobile bg-white shadow-2xl';
+      }
+    }
+
+    function copyCurrentCode() {
+      navigator.clipboard.writeText(editorArea.value).then(() => {
+        notify('Code copied to clipboard!');
+      });
+    }
+
+    function downloadCodeFile() {
+      const blob = new Blob([editorArea.value], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      a.click();
+      notify('Downloaded index.html!');
+    }
+
+    function applyDesignTheme(theme) {
+      const palettes = {
+        cyberDark: { bg: '#0b0f19', text: '#f8fafc', btn: '#6366f1' },
+        modernClean: { bg: '#ffffff', text: '#0f172a', btn: '#2563eb' },
+        warmSunset: { bg: '#1c1917', text: '#fef3c7', btn: '#f59e0b' },
+        emeraldGrowth: { bg: '#022c22', text: '#ecfdf5', btn: '#10b981' }
+      }[theme];
+
+      const style = `<style>body{background:${palettes.bg}!important;color:${palettes.text}!important;}.btn{background:${palettes.btn}!important;color:#fff!important;}</style>`;
+      currentCode = currentCode.replace('</head>', style + '\n</head>');
+      if (editorArea) editorArea.value = currentCode;
+      renderFrame();
+      const dFrame = document.getElementById('designPreviewFrame');
+      if (dFrame) dFrame.srcdoc = currentCode;
+      notify('Theme applied: ' + theme);
+    }
+
+    function updateLiveUrlDisplay() {
+      const input = document.getElementById('publicSubdomainInput');
+      const slug = (input ? input.value.trim() : '') || 'myapnawebsite';
+      const url = `https://${slug}.apnaweb.in`;
+      const full = document.getElementById('fullUrlPreview');
+      const modal = document.getElementById('publishedLiveAnchor');
+      if (full) full.textContent = url;
+      if (modal) modal.textContent = url;
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('publishedSuccessModal').classList.add('hidden');
+      navigate('studio');
+    }
+
+    // ==================== MASTER CONTROL LOGIC ====================
+    function promptMasterControl() {
+      const enteredPin = prompt("Enter Master Admin PIN (Default: 7788):");
+      if (enteredPin === masterConfig.adminPin) {
+        openMasterControl();
+      } else if (enteredPin !== null) {
+        alert("Incorrect Admin PIN.");
+      }
+    }
+
+    function openMasterControl() {
+      applyConfigToUI();
+      document.getElementById('masterAdminModal').classList.remove('hidden');
+      notify('Welcome to Master Control Panel 👑');
+    }
+
+    function closeMasterControl() {
+      document.getElementById('masterAdminModal').classList.add('hidden');
+    }
+
+    function saveAdminSettings() {
+      const newPrice = parseInt(document.getElementById('adminPriceInput').value, 10);
+      const newPayee = document.getElementById('adminPayeeNameInput').value.trim();
+      const newUpi = document.getElementById('adminUpiInput').value.trim();
+
+      if (newPrice && newPrice > 0) masterConfig.price = newPrice;
+      if (newPayee) masterConfig.payeeName = newPayee;
+      if (newUpi) masterConfig.upiId = newUpi;
+
+      saveConfig();
+      notify('Master settings saved! Changes live across app.');
+    }
+
+    function renderAdminStats() {
+      const totalRev = masterConfig.transactions.reduce((sum, t) => sum + (t.status === 'Approved' ? t.amount : 0), 0);
+      const totalTx = masterConfig.transactions.length;
+      const approvedCount = masterConfig.transactions.filter(t => t.status === 'Approved').length;
+
+      const sRev = document.getElementById('statTotalRev');
+      if (sRev) sRev.textContent = `₹${totalRev}`;
+      const sTx = document.getElementById('statTotalTx');
+      if (sTx) sTx.textContent = totalTx;
+      const sApp = document.getElementById('statApproved');
+      if (sApp) sApp.textContent = approvedCount;
+
+      const tbody = document.getElementById('adminTransactionTableBody');
+      if (!tbody) return;
+
+      if (masterConfig.transactions.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="p-4 text-center text-slate-500">No transactions recorded yet. They will appear here when users submit UTRs.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = masterConfig.transactions.map((tx, idx) => `
+        <tr class="hover:bg-slate-900/60">
+          <td class="p-2.5 text-slate-400">${tx.date}</td>
+          <td class="p-2.5 text-white font-medium">${tx.user}</td>
+          <td class="p-2.5 text-cyan-300 font-bold">${tx.utr}</td>
+          <td class="p-2.5 text-slate-400 font-mono">${tx.subdomain}.apnaweb.in</td>
+          <td class="p-2.5 text-emerald-400 font-bold">₹${tx.amount}</td>
+          <td class="p-2.5"><span class="px-2 py-0.5 rounded text-[10px] ${tx.status === 'Approved' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'}">${tx.status}</span></td>
+          <td class="p-2.5 text-right space-x-1">
+            <button onclick="toggleTxStatus(${idx})" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[10px] text-slate-200">Toggle</button>
+            <button onclick="deleteTx(${idx})" class="px-2 py-1 rounded bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 text-[10px]">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function toggleTxStatus(idx) {
+      if (masterConfig.transactions[idx]) {
+        masterConfig.transactions[idx].status = masterConfig.transactions[idx].status === 'Approved' ? 'Rejected' : 'Approved';
+        saveConfig();
+      }
+    }
+
+    function deleteTx(idx) {
+      masterConfig.transactions.splice(idx, 1);
+      saveConfig();
+      notify('Transaction record deleted.');
+    }
+
+    function clearTransactionLogs() {
+      if (confirm('Clear all logged customer transactions?')) {
+        masterConfig.transactions = [];
+        saveConfig();
+        notify('Logs cleared.');
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        promptMasterControl();
+      }
+    });
+
+    let logoClicks = 0;
+    const logoEl = document.getElementById('brandHeaderLogo');
+    if (logoEl) {
+      logoEl.addEventListener('click', () => {
+        logoClicks++;
+        if (logoClicks >= 3) {
+          logoClicks = 0;
+          promptMasterControl();
+        }
+        setTimeout(() => { logoClicks = 0; }, 700);
+      });
+    }
+
+    window.addEventListener('load', () => {
+      applyConfigToUI();
+      navigate('welcome');
+      selectCategory('ithub');
+    });
+  </script>
+</body>
+</html>
